@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Login - Traveller Organizer</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial;
