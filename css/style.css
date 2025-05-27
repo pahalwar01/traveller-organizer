@@ -1,4 +1,7 @@
 body {
-    font-family: 'Raleway', 'sans-serif';
-    background-color: #fff;
-  }
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('images/travel-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
