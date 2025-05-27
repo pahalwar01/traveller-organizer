@@ -34,14 +34,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Register - Traveller Organizer</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial;
             background: #f4f4f4;
             padding: 50px;
+            background: url('images/travel-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
         }
         .form-box {
-            background: white;
+            background: rgba(0, 0, 0, 0.5);
             padding: 30px;
             border-radius: 10px;
             max-width: 400px;
@@ -78,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit" class="btn">Register</button>
     </form>
     <p class="msg"><?php echo $message; ?></p>
-    <p>Already have an account? <a href="login.php">Login here</a>.</p>
+    <p>Already have an account? <a href="login.php" style="color: yellow;">Login here</a>.</p>
 </div>
 
 </body>
