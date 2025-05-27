@@ -19,7 +19,7 @@ session_start();
         }
 
         .overlay {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0);
             padding: 80px 20px;
             min-height: 100vh;
             text-align: center;
@@ -28,7 +28,7 @@ session_start();
         .container {
             max-width: 600px;
             margin: auto;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
