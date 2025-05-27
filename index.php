@@ -5,7 +5,8 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Traveller Organizer</title>
+    <title>RK Tour and Traveller</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -41,7 +42,7 @@ session_start();
 <body>
 
 <div class="box">
-    <h1>Welcome to Traveller Organizer</h1>
+    <h1>Welcome to RK Tour and Traveller</h1>
 
     <?php if (isset($_SESSION['user_id'])): ?>
         <p>Hello, <strong><?php echo $_SESSION['user_name']; ?></strong>!</p>
