@@ -1,1 +1,0 @@
-<?php // list travel packages with booking option ?>
