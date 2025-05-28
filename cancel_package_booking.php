@@ -1,1 +1,0 @@
-<?php // cancel package booking ?>
