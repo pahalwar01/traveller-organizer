@@ -7,7 +7,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RK Traveller Organizer</title>
+    <title>Traveller Organizer</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
@@ -47,7 +47,8 @@ session_start();
         .btn {
             background: #00bcd4;
             color: white;
-            padding: 12px 25px;
+            padding: 12px 25px 12px 25px;
+            display: inline-block;
             border: none;
             border-radius: 25px;
             text-decoration: none;
@@ -84,11 +85,11 @@ session_start();
 
 <div class="overlay">
     <div class="container">
-        <h1>Welcome to RK Traveller Organizer</h1>
+        <h1>Welcome to Traveller Organizer</h1>
 
         <?php if (isset($_SESSION['user_id'])): ?>
             <p>Hello, <strong><?php echo $_SESSION['user_name']; ?></strong>! Plan your next trip with ease.</p>
-            <a class="btn" href="profile.php">My Profile</a>
+            <a class="btn" href="user/profile.php">My Profile</a>
             <a class="btn" href="trip_add.php">Add New Trip</a>
             <a class="btn btn-red" href="logout.php">Logout</a>
         <?php else: ?>
