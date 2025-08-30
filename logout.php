@@ -1,10 +1,13 @@
 <?php
-session_start();
-
-// Destroy all session data
-session_unset();
+// logout process start
+session_start();  
+session_unset(); 
 session_destroy();
+?>
 
-// Redirect to login page
-header("Location: login.php");
-exit();
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="refresh" content=".1;url=index.php">
+</head>
+</html>
