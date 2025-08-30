@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include '../db.php';
 
 // Redirect if not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -64,7 +64,7 @@ $stmt->close();
     <div class="info"><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></div>
     <div class="info"><strong>Joined On:</strong> <?php echo date("d M, Y", strtotime($created_at)); ?></div>
 
-    <a href="index.php" class="btn">Home</a>
+    <a href="../index.php" class="btn">Home</a>
     <a href="logout.php" class="btn" style="background-color: #dc3545;">Logout</a>
 </div>
 
