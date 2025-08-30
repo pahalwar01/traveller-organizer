@@ -7,6 +7,7 @@ $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
+    $phone = trim($_POST["phone"]);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
     // Check if email already exists
@@ -18,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($check->num_rows > 0) {
         $message = "Email already registered. Try logging in.";
     } else {
-        $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
-        $stmt->bind_param("sss", $name, $email, $password);
+        $stmt = $conn->prepare("INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $name, $email, $phone, $password);
         if ($stmt->execute()) {
             header("Location: login.php");
             exit();
@@ -78,6 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <form method="POST" action="">
         <input type="text" name="name" placeholder="Full Name" required><br>
         <input type="email" name="email" placeholder="Email Address" required><br>
+        <input type="text" name="phone" placeholder="Phone Number" required><br>
         <input type="password" name="password" placeholder="Password" required><br>
         <button type="submit" class="btn">Register</button>
     </form>
