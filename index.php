@@ -1,5 +1,6 @@
 <?php
 session_start();
+include('db.php');
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +99,40 @@ session_start();
             <a class="btn" href="register.php">Register</a>
         <?php endif; ?>
     </div>
+    <br>
+    <?php
+// Fetch all packages added by admin
+$packages_sql = "SELECT * FROM packages";
+$packages_result = mysqli_query($conn, $packages_sql);
+?>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">🌍 Available Trips</h3> <hr><hr>
+    <div class="row">
+        <?php while ($package = mysqli_fetch_assoc($packages_result)) { ?>
+            <div class="col-md-4">
+                <div class="card shadow-lg mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $package['title']; ?></h5>
+                        <p><strong>Days:</strong> <?php echo $package['days']; ?> | 
+                           <strong>Nights:</strong> <?php echo $package['nights']; ?></p>
+                        <p><strong>Price:</strong> ₹<?php echo $package['price']; ?></p>
+                        <p><?php echo $package['description']; ?></p>
+                        <form method="post" action="/user/book_package.php">
+                            <input type="hidden" name="package_id" value="<?php echo $package['id']; ?>">
+                            <button type="submit" class="btn btn-success">Book Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div><hr>
+        <?php } ?>
+    </div>
 </div>
+
+</div>
+
+
+
 
 </body>
 </html>
