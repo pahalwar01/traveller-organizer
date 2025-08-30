@@ -65,7 +65,7 @@ $stmt->close();
     <div class="info"><strong>Joined On:</strong> <?php echo date("d M, Y", strtotime($created_at)); ?></div>
 
     <a href="../index.php" class="btn">Home</a>
-    <a href="logout.php" class="btn" style="background-color: #dc3545;">Logout</a>
+    <a href="../logout.php" class="btn" style="background-color: #dc3545;">Logout</a>
 </div>
 
 </body>
