@@ -74,19 +74,40 @@ $packages = mysqli_query($conn, "SELECT * FROM packages ORDER BY created_at DESC
 </style>
 </head>
 <body class="bg-light">
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="../index.php">Traveller Organizer</a>
-    <div>
+    <nav class="navbar navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="../index.php">Traveller Organizer</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="../index.php">🏠<?php echo htmlspecialchars($user['name']); ?></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="btn btn-outline-light me-2" href="edit_profile.php">✏️ Edit Profile</a>
+            </li>
+            <li>
+              <a class="btn btn-outline-light me-2" href="../index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-danger" href="logout.php">🚪 Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- <div>
       <a class="btn btn-outline-light me-2" href="../index.php">Home</a>
       <a class="btn btn-danger" href="logout.php">Logout</a>
-    </div>
+    </div> -->
   </div>
 </nav>
 <div class="container py-4">
   <?php if ($msg) echo "<div class='alert alert-info'>$msg</div>"; ?>
   <div class="row">
-    <div class="col-md-4">
+    <!-- <div class="col-md-4">
       <div class="card p-3 mb-3 text-center">
         <?php if (!empty($user['profile_pic'])): ?>
           <img src="<?php echo htmlspecialchars('../' . $user['profile_pic']); ?>" class="profile-pic mb-2" alt="pic">
@@ -112,7 +133,7 @@ $packages = mysqli_query($conn, "SELECT * FROM packages ORDER BY created_at DESC
         </form>
         <a class="btn btn-warning w-100 mt-2" href="change_password.php">Change Password</a>
       </div>
-    </div>
+    </div> -->
 
     <div class="col-md-8">
       <div class="card p-3 mb-3">
