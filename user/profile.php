@@ -107,7 +107,7 @@ $packages = mysqli_query($conn, "SELECT * FROM packages ORDER BY created_at DESC
 <div class="container py-4">
   <?php if ($msg) echo "<div class='alert alert-info'>$msg</div>"; ?>
   <div class="row">
-    <!-- <div class="col-md-4">
+    <div class="col-md-4">
       <div class="card p-3 mb-3 text-center">
         <?php if (!empty($user['profile_pic'])): ?>
           <img src="<?php echo htmlspecialchars('../' . $user['profile_pic']); ?>" class="profile-pic mb-2" alt="pic">
@@ -133,7 +133,7 @@ $packages = mysqli_query($conn, "SELECT * FROM packages ORDER BY created_at DESC
         </form>
         <a class="btn btn-warning w-100 mt-2" href="change_password.php">Change Password</a>
       </div>
-    </div> -->
+    </div>
 
     <div class="col-md-8">
       <div class="card p-3 mb-3">
