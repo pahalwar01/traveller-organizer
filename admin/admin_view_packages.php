@@ -1,1 +1,0 @@
-<?php // admin view/delete packages ?>
