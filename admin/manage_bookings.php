@@ -5,14 +5,17 @@ if (!isset($_SESSION['admin_id'])) { header("Location: admin_login.php"); exit()
 
 // Approve / Reject
 if (isset($_GET['action']) && isset($_GET['id'])) {
-    $id = intval($_GET['id']);
+    $booking_id = $_GET['id'];
     $action = $_GET['action'];
-    if ($action === 'approve') {
-        $stmt = mysqli_prepare($conn, "UPDATE package_bookings SET status='Confirmed' WHERE id=?");
-    } elseif ($action === 'reject') {
-        $stmt = mysqli_prepare($conn, "UPDATE package_bookings SET status='Rejected' WHERE id=?");
-    } elseif ($action === 'cancel') {
-        $stmt = mysqli_prepare($conn, "UPDATE package_bookings SET status='Cancelled' WHERE id=?");
+
+    if ($action == "approve") {
+        mysqli_query($conn, "UPDATE package_bookings SET status='Confirmed' WHERE id='$booking_id'");
+    } elseif ($action == "reject") {
+        mysqli_query($conn, "UPDATE package_bookings SET status='Rejected' WHERE id='$booking_id'");
+    } elseif ($action == "cancel") {
+        mysqli_query($conn, "UPDATE package_bookings SET status='Cancelled' WHERE id='$booking_id'");
+    } elseif ($action == "reject_cancel") {
+        mysqli_query($conn, "UPDATE package_bookings SET status='Confirmed' WHERE id='$booking_id'");
     }
     if (isset($stmt)) { mysqli_stmt_bind_param($stmt, "i", $id); mysqli_stmt_execute($stmt); mysqli_stmt_close($stmt); }
     header("Location: manage_bookings.php"); exit();
@@ -49,12 +52,15 @@ $res = mysqli_query($conn, "
               <td><?php echo htmlspecialchars($b['status']); ?></td>
               <td><?php echo $b['booking_date']; ?></td>
               <td>
-                <?php if ($b['status'] === 'Pending'): ?>
-                  <a class="btn btn-sm btn-success" href="manage_bookings.php?action=approve&id=<?php echo $b['id']; ?>">Approve</a>
-                  <a class="btn btn-sm btn-danger" href="manage_bookings.php?action=reject&id=<?php echo $b['id']; ?>">Reject</a>
-                <?php else: ?>
-                  <em>No action</em>
-                <?php endif; ?>
+                <?php if ($b['status'] == "Pending") { ?>
+                    <a href="manage_bookings.php?action=approve&id=<?php echo $b['id']; ?>" class="btn btn-success btn-sm">✅ Approve</a>
+                    <a href="manage_bookings.php?action=reject&id=<?php echo $b['id']; ?>" class="btn btn-danger btn-sm">❌ Reject</a>
+                <?php } elseif ($b['status'] == "Cancel_Request") { ?>
+                    <a href="manage_bookings.php?action=cancel&id=<?php echo $b['id']; ?>" class="btn btn-warning btn-sm">✔ Confirm Cancel</a>
+                    <a href="manage_bookings.php?action=reject_cancel&id=<?php echo $b['id']; ?>" class="btn btn-info btn-sm">🚫 Reject Cancel</a>
+                <?php } else { ?>
+                    <em>No action</em>
+                <?php } ?>
               </td>
             </tr>
           <?php endwhile; ?>
