@@ -19,7 +19,7 @@ $latest_users = mysqli_query($conn, "SELECT id, name, email, created_at FROM use
 
 // Latest 5 Car Bookings
 $latest_car_bookings = mysqli_query($conn, "
-    SELECT b.id, u.name AS user_name, b.car_model, b.start_date, b.end_date, b.status 
+    SELECT b.id, u.name AS user_name, b.car_type, b.start_date, b.end_date, b.status 
     FROM car_bookings b 
     JOIN users u ON b.user_id = u.id 
     ORDER BY b.id DESC LIMIT 5
