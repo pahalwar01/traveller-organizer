@@ -1,1 +1,0 @@
-<?php // weather info ?>
