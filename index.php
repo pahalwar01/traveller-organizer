@@ -22,7 +22,7 @@ session_start();
 
         <?php if (isset($_SESSION['user_id'])): ?>
           <p>Hello <strong><?php echo htmlspecialchars($_SESSION['user_name']); ?></strong></p>
-          <a class="btn btn-primary" href="user/profile.php">My Profile</a>
+          <a class="btn btn-primary" href="user/profile.php">My Profile</a><br>
           <a class="btn btn-light" href="user/logout.php">Logout</a>
         <?php else: ?>
           <a class="btn btn-success" href="user/register.php">Register</a><br>
